@@ -47,15 +47,15 @@ class Selection : public SliceTraits<Selection> {
     /// \return return the datatype of the selection
     const DataType getDataType() const;
 
-  private:
+  // private:
     Selection(const DataSpace& memspace,
               const DataSpace& file_space,
               const DataSet& set);
-
+private:
     DataSpace _mem_space, _file_space;
     DataSet _set;
 
-    template <typename Derivate> friend class ::HighFive::SliceTraits;
+    // template <typename Derivate> friend class ::HighFive::SliceTraits;
     // absolute namespace naming due to GCC bug 52625
 };
 
