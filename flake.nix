@@ -16,10 +16,21 @@
             name = pname;
             nativeBuildInputs = [
               cmake
+
+            ];
+            buildInputs = [
               hdf5
               boost
+              eigen
             ];
             src = ./.;
+            cmakeFlags = [
+              "-DHIGHFIVE_USE_BOOST=ON"
+              "-DHIGHFIVE_USE_EIGEN=ON"
+              "-DHIGHFIVE_EXAMPLES=OFF"
+              "-DHIGHFIVE_UNIT_TESTS=OFF"
+              "-DHIGHFIVE_USE_INSTALL_DEPS=ON"
+            ];
           };
         defaultPackage = self.packages.${system}.${pname};
         apps.${pname} = flake-utils.lib.mkApp {
