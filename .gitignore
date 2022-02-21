@@ -3,3 +3,6 @@ tests/test_project
 .idea
 
 .vs/
+
+# nix
+result
